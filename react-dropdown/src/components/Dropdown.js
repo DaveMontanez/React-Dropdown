@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Container = styled.div`
 
-  .usb-dropdown {
+  .dropdown {
     width: 200px;
 
     .dropdown-btn {
@@ -13,13 +13,15 @@ const Container = styled.div`
       justify-content: flex-start;
       align-items: center;
       border-radius: 2px;
-      background-color: white;
+      border: none;
+      background-color: #5c5c5c;
+      color: white;
       padding: 8px 10px;
       min-width: 200px;
-      min-height: 32px;
-      -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
-      -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
-      box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+      min-height: 40px;
+      -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.9);
+      -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.9);
+      box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.9);
 
       &.selected-active {
         font-weight: 600;
@@ -30,7 +32,7 @@ const Container = styled.div`
         right: 10px;
         height: 12px;
         width: 12px;
-        fill: #5a5a5a
+        fill: white
       }
     }
 
@@ -45,11 +47,11 @@ const Container = styled.div`
 
       &.expanded {
         max-height: 1000px;
-        border: 1px solid #cccccc;
+        border: none;
         border-top: none;
-        -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
-        -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
-        box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+        -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.9);
+        -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.9);
+        box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.9);
       }
 
       .item {
@@ -58,13 +60,14 @@ const Container = styled.div`
           display: flex;
           justify-content: flex-start;
           width: 100%;
+          height: 40px;
           padding: 10px;
-          background-color: white;
+          background-color: #5c5c5c;
+          color: white;
           border: none;
 
           &:hover, &.selected {
-            background-color: #F7F7FB;
-            color: #0A41C5;
+            background-color: #4b4b4b;
           }
         }
       }
@@ -73,7 +76,7 @@ const Container = styled.div`
 `;
 
 
-class USBDropdown extends Component {
+class Dropdown extends Component {
   constructor() {
     super();
 
@@ -205,7 +208,7 @@ class USBDropdown extends Component {
     return (
       <Container>
         
-        <div className="usb-dropdown" ref={this.setWrapperRef}>
+        <div className="dropdown" ref={this.setWrapperRef}>
           <button ref={this.dropdownBtnRef}
             className={selectedItem ? "dropdown-btn selected-active" : "dropdown-btn"}
             aria-haspopup="listbox"
@@ -249,14 +252,14 @@ class USBDropdown extends Component {
   }
 }
 
-export default USBDropdown;
+export default Dropdown;
 
-USBDropdown.propTypes = {
+Dropdown.propTypes = {
   dropdownPlaceholder: PropTypes.string,
   items: PropTypes.array
 }
 
-USBDropdown.defaultProps = {
+Dropdown.defaultProps = {
   dropdownPlaceholder: "",
   items: ["Item 1", "Item 2", "Item 3"] 
 }

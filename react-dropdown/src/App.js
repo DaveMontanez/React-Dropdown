@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './index.css';
 import styled from 'styled-components';
 
-import USBDropdown from './components/USBDropdown';
+import Dropdown from './components/Dropdown';
 
 const Container = styled.div`
   display: flex;
@@ -10,25 +10,13 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   height: 600px;
-  width: 600px;
+  width: 60%;
+  min-width: 300px;
   padding: 100px 0;
   margin: 0 auto;
-  border: 4px solid navy;
+  border: 4px solid black;
   border-radius: 10px;
   background-color: white;
-
-  .block {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    &.dark {
-      background-color: #0C2074;
-    }
-  }
 `;
 
 
@@ -43,7 +31,7 @@ class App extends Component {
     return (
       <Container>
 
-        <USBDropdown
+        <Dropdown
           dropdownPlaceholder="Dropdown"
           items={ ["Item 1", "Item 2", "Item 3", "Item 4"] }
         />
